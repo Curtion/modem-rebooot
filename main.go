@@ -31,9 +31,7 @@ func login() (string, error) {
 }
 
 func reboot(sessionKey string) (string, error) {
-	resp, err := http.Post("http://192.168.1.1/rebootinfo.cgi?sessionKey="+sessionKey, "application/x-www-form-urlencoded",
-		strings.NewReader("username=useradmin&password=ayak6&save=%B5%C7%C2%BC"),
-	)
+	resp, err := http.Get("http://192.168.1.1/rebootinfo.cgi?sessionKey=" + sessionKey)
 	if err != nil {
 		return "", err
 	}
